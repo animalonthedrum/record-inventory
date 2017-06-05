@@ -1,6 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var pg = require('pg');
 
+
+var config = {
+  database: 'records',
+  host: 'localhost',
+  port: 5432,
+  max: 30
+}; // end config obj
+var pool = new pg.Pool(config);
 
 router.get('/', function(req, res) {
   console.log('get hit to /records');
